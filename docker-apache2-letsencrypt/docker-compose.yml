@@ -1,0 +1,21 @@
+apache2:
+  build: .
+  hostname: www.test.tf
+  restart: always
+  volumes_from:
+    - letsencryptstore
+  ports:
+    - "80:80"
+    - "443:443"
+  environment:
+    LETS_ENCRYPT_EMAIL: "goffinet@goffinet.eu"
+    LETS_ENCRYPT_DOMAINS: "test.tf,www.test.tf"
+  labels:
+    io.enonic.backup.data: "/etc/letsencrypt,/var/lib/letsencrypt"
+  volumes:
+    - $PWD/html:/var/www/html
+letsencryptstore:
+  image: busybox
+  volumes:
+    - "/etc/letsencrypt"
+    - "/var/lib/letsencrypt"

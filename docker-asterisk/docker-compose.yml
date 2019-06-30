@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  asterisk:
+    image: asterisk
+    build: ./
+    network_mode: "host"
+    volumes:
+      - $PWD/conf:/etc/asterisk
+#    environment:
+#      - ASTERISK_USER=root
+    ports:
+      - "1-65535:1-65535"
+      - "1-65535:1-65535/udp"
+    restart: always
+    command: asterisk -f
