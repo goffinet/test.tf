@@ -12,4 +12,5 @@ test.tf source code
 * DNS : [docker-bind](docker-bind/)
 * HTTP/HTTPS : [docker-apache2-letsencrypt](docker-apache2-letsencrypt/)
 * POP3, SMTP, IMAP, IMAPS : [docker-mailserver](docker-mailserver/)
+* SIP : [docker-asterisk](docker-asterisk/)
 * Monitoring [dockprom](dockprom/)
